@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             //
-            $table->string('user_type')->unique();
+            $table->string('user_type')->default('cashier');
             $table->string('matric_id')->unique();
             //
             $table->timestamp('email_verified_at')->nullable();
