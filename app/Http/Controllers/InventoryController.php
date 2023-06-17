@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Inventory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class InventoryController extends Controller
 {
@@ -12,7 +13,12 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        //
+                $inventories =Inventory::all();
+                //$inventories = Auth::user()->inventory;
+
+                //$todos=Todo::with('user')->get();
+                return view('inventory.index', ['inventories' => $inventories]);
+                //
     }
 
     /**
@@ -20,7 +26,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('inventory.create');
     }
 
     /**
@@ -28,7 +34,22 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'product_Name' => 'required|string|max:255'
+        ]);
+
+        $inventory = new Inventory();
+        $inventory->inventory_id;
+        //dd(Auth::user()->id);
+        $inventory->product_Name = $request->product_Name;
+        $inventory->quantity = $request->quantity;
+        $inventory->price = $request->price;
+        $inventory->notes = $request->notes;
+        $inventory->save();
+
+        return redirect(route('inventory.index'));
+        
     }
 
     /**
@@ -44,7 +65,9 @@ class InventoryController extends Controller
      */
     public function edit(Inventory $inventory)
     {
-        //
+        
+        return view('inventory/edit', ['inventory' => $inventory]);
+        
     }
 
     /**
@@ -52,7 +75,23 @@ class InventoryController extends Controller
      */
     public function update(Request $request, Inventory $inventory)
     {
-        //
+        
+        $request->validate([
+            'product_Name' => 'required|string|max:255',
+            'quantity' => 'required|numeric',
+            'price' => 'required|numeric',
+            'notes' => 'nullable|string',
+        ]);
+
+        $inventory->product_Name = $request->product_Name;
+        $inventory->quantity = $request->quantity;
+        $inventory->price = $request->price;
+        $inventory->notes = $request->notes;
+
+        $inventory->update();
+
+        return redirect(route('inventory.index'));
+    
     }
 
     /**
@@ -60,6 +99,10 @@ class InventoryController extends Controller
      */
     public function destroy(Inventory $inventory)
     {
-        //
+        
+        $inventory->delete();
+
+        return redirect(route('inventory.index'));
+        
     }
 }

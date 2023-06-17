@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inventory extends Model
 {
+  
     use HasFactory;
+    protected $primaryKey = 'inventory_id';
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
