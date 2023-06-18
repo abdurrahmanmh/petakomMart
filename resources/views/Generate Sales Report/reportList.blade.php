@@ -69,11 +69,11 @@
                 {{ $report->Date }}
                 </td>
                 <td class="px-6 py-4 text-right">
-                <form action="{{ route('salesreport.edit', ['Sales_ID'=>$report->Sales_ID]) }}" method="POST">
+                    <form action="{{ route('Generate Sales Report.reportUpdate', ['Sales_ID'=>$report->Sales_ID]) }}" method="POST">
                         @csrf
                         @method('edit')
                         <button type="submit" class="btn btn-outline-danger">Edit</button>
-                    </form>
+
                     <form action="{{ route('salesreport.destroy', ['Sales_ID'=>$report->Sales_ID]) }}" method="POST">
                         @csrf
                         @method('delete')
