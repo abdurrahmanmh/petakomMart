@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->id();
+            $table->id('Payment_ID');
+            $table->foreignId('User_ID');
+            $table->foreignId('Sales_ID');
+            $table->string('Product_name');
+            $table->integer('quantity');
+            $table->double('price',10,2);
+            $table->double('Total_Price',10,2);
+            $table->string('payType');
             $table->timestamps();
         });
     }
@@ -25,3 +32,21 @@ return new class extends Migration
         Schema::dropIfExists('payments');
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
