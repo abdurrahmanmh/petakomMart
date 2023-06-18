@@ -3,45 +3,88 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <h1>Generate Sales Report List</h1>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Sales ID</th>
-                                <th>User ID</th>
-                                <th>Inventory ID</th>
-                                <th>Product Name</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Date</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($salesreport as $report)
-                                <tr>
-                                    <td>{{ $report->Sales_ID }}</td>
-                                    <td>{{ $report->User_ID}}</td>
-                                    <td>{{ $report->Inventory_ID}}</td>
-                                    <td>{{ $report->Inventory->name }}</td>
-                                    <td>{{ $report->Inventory->price }}</td>
-                                    <td>{{ $report->Inventory->quantity }}</td>
-                                    <td>{{ $report->date }}</td>
-                                    <td>
-                                        <a href="{{ route('sales.edit', $report->Sales_ID) }}" class="btn btn-primary">Edit</a>
-                                        <form class="d-inline" method="POST" action="{{ route('sales.destroy', $report->Sales_ID) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+
+
+
+                
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    No
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Sales ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                User ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Inventory ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Product Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Quantity
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($salesreport as $report)
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ $loop->iteration }}
+                </th>
+                <td class="px-6 py-4">
+                {{ $report->Sales_ID }}
+                </td>
+                <td class="px-6 py-4">
+                {{ $report->User_ID}}
+                </td>
+                <td class="px-6 py-4">
+                   {{ $report->Inventory_ID}}
+                </td>
+                <td class="px-6 py-4">
+                {{ $report->Inventory->Product_name }}
+                </td>
+                <td class="px-6 py-4">
+                {{ $report->Inventory->Quantity }}
+                </td>
+                <td class="px-6 py-4">
+                {{ $report->date }}
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <a href="{{ route('Generate Sales Report.reportUpdate', $report->Sales_ID) }}"
+                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        Edit
+                    </a>
+
+                    <!-- <form method="POST" action="{{ route('inventory.destroy',$report->Sales_ID) }}">
+                        @csrf
+                        @method('delete')
+
+                        <x-primary-button>{{ __('Delete') }}</x-primary-button>
+
+                    </form> -->
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <a href="{{ route('Generate Sales Report.reportAdd') }}"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
+                Report</a>
+</div>
             </div>
         </div>
     </div>
+
 </x-app-layout>

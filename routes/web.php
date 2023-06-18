@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/salesreport', [SalesReportController::class,'index'])->name('Generate Sales Report.reportList')->middleware('auth');
-Route::get('/salesreport/create', [SalesReportController::class,'create'])->name('salesreport.create');
+Route::get('/salesreport/create', [SalesReportController::class,'create'])->name('Generate Sales Report.reportAdd');
 Route::post('/salesreport', [SalesReportController::class,'store'])->name('salesreport.store');
 Route::get('/salesreport/{salesreport}/edit', [SalesReportController::class,'edit'])->name('salesreport.edit');
 Route::put('/salesreport/{salesreport}', [SalesReportController::class,'update'])->name('salesreport.update');
