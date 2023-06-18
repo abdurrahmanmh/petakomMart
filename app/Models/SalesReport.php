@@ -18,7 +18,6 @@ class SalesReport extends Model
         'Sales_ID',
         'User_ID',
         'Inventory_ID',
-        'Payment_ID',
         'Date',
     ];
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('Sales_ID');
             $table->foreignId('User_ID');
             $table->foreignId('Inventory_ID');
-            $table->foreignId('Payment_ID');
+            
             $table->date('Date');
             $table->timestamps();
         });

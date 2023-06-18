@@ -51,13 +51,13 @@
                 {{ $report->User_ID}}
                 </td>
                 <td class="px-6 py-4">
-                   {{ $report->Inventory_ID}}
+                {{ $report->inventory->Inventory_ID}}
                 </td>
                 <td class="px-6 py-4">
-                {{ $report->Inventory->product_Name }}
+                {{ $report->inventory->product_Name }}
                 </td>
                 <td class="px-6 py-4">
-                {{ $report->Inventory->Quantity }}
+                {{ $report->inventory->Quantity }}
                 </td>
                 <td class="px-6 py-4">
                 {{ $report->date }}
@@ -66,6 +66,10 @@
                     <a href="{{ route('Generate Sales Report.reportUpdate', $report->Sales_ID) }}"
                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                         Edit
+                    </a>
+                    <a href="{{ route('Generate Sales Report.reportDelete', $report->Sales_ID) }}"
+                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        Delete
                     </a>
 
                     <!-- <form method="POST" action="{{ route('inventory.destroy',$report->Sales_ID) }}">
