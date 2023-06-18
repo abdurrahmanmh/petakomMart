@@ -12,7 +12,8 @@ class DutyRosterController extends Controller
      */
     public function index()
     {
-       return view('dutyRosters.index');
+        $duties = dutyRoster::all();
+       return view('Manage Duty Roster.Schedule', ['duties' => $duties]);
     }
 
     /**
@@ -20,7 +21,7 @@ class DutyRosterController extends Controller
      */
     public function create()
     {
-        //
+        return view('Manage Duty Roster.slotAdd');
     }
 
     /**
@@ -44,7 +45,7 @@ class DutyRosterController extends Controller
      */
     public function edit(dutyRoster $dutyRoster)
     {
-        //
+        return view('Manage Duty Roster.slotUpdate');
     }
 
     /**

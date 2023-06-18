@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SalesReportController;
+use App\Http\Controllers\dutyRosterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,8 @@ Route::get('/salesreport/{salesreport}/edit', [SalesReportController::class,'edi
 Route::put('/salesreport/{salesreport}', [SalesReportController::class,'update'])->name('salesreport.update');
 Route::delete('/salesreport/{salesreport}', [SalesReportController::class,'destroy'])->name('salesreport.destroy');
 require __DIR__.'/auth.php';
+
+Route::get('/dutyRoster', [dutyRosterController::class,'index'])->name('Manage Duty Roster.Schedule')->middleware('auth');
+Route::post('/dutyRoster', [dutyRosterController::class,'create'])->name('Manage Duty Roster.slotAdd');
+Route::put('/dutyRoster/{id}', [dutyRosterController::class,'edit'])->name('Manage Duty Roster.slotUpdate');
+

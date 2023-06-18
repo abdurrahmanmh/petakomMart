@@ -31,17 +31,17 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($dutyRoster as $duty)
+                @foreach($duties as $duty)
                     <tr>
                         <td>{{ $duty->date }}</td>
                         <td>{{ $duty->employee }}</td>
                         <td>{{ $duty->shift }}</td>
                         <td>
                             <!-- Edit button -->
-                            <a href="{{ route('duty.edit', $duty->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('Manage Duty Roster.slotUpdate', $duty->id) }}" class="btn btn-primary">Edit</a>
                             
                             <!-- Delete button -->
-                            <form action="{{ route('duty.destroy', $duty->id) }}" method="POST" style="display:inline">
+                            <form action="" method="POST" style="display:inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -53,7 +53,7 @@
         </table>
         
         <!-- Add new duty button -->
-        <a href="{{ route('duty.create') }}" class="btn btn-success">Add New Duty</a>
+        <a href="{{ route('Manage Duty Roster.slotAdd') }}" class="btn btn-success">Add New Duty</a>
     </div>
     
     <script src="{{ asset('js/app.js') }}"></script>
