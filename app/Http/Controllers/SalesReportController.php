@@ -52,7 +52,7 @@ class SalesReportController extends Controller
      */
     public function edit(SalesReport $salesReport)
     {
-        //
+        return view('Generate Sales Report/reportUpdate', ['salesreport' => $salesReport]);
     }
 
     /**
@@ -66,6 +66,12 @@ class SalesReportController extends Controller
             'Quantity' => $request->Quantity,
             'Price' => $request->Price,
         ]);
+
+        $sale->product_Name = $request->product_Name;
+        $sale->quantity = $request->quantity;
+        $sale->price = $request->price;
+
+        $sale->update();
 
     // Redirect or perform any other actions after updating the sales report
 
