@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,11 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
 
-require __DIR__ . '/auth.php';
+Route::get('/payments', [PaymentController::class,'index'])->name('Manage Payment Activities.paymentList')->middleware('auth');
+Route::get('/payments/create', [PaymentController::class,'create'])->name('Manage Payment Activities.paymentAdd');
+Route::post('/payments', [PaymentController::class,'store'])->name('payment.store');
+Route::get('/payments/{payments}/edit', [PaymentController::class,'edit'])->name('payment.edit');
+Route::put('/payments/{payments}', [PaymentController::class,'update'])->name('Manage Payment Activities.paymentUpdate');
+Route::delete('/payments/{payments}', [PaymentController::class,'destroy'])->name('payment.destroy');
+require __DIR__.'/auth.php';
+
