@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Inventory;
 use App\Models\SalesReport;
 use Illuminate\Http\Request;
 
@@ -30,21 +29,44 @@ class SalesReportController extends Controller
      */
     public function store(Request $request)
     {
-    $salesreport = new SalesReport();
-    $salesreport->User_ID = $request->input('User_ID');
-    $salesreport->Inventory_ID = $request->input('Inventory_ID');
-    $salesreport->product_Name = $request->input('product_Name');
-    $salesreport->Price = $request->input('Quantity');
-    $salesreport->Quantity = $request->input('Price');
-    $salesreport->save();
+    $salesReport = new SalesReport();
+    $salesReport->User_ID = $request->input('User_ID');
+    $salesReport->Inventory_ID = $request->input('Inventory_ID');
+    $salesReport->product_Name = $request->input('product_Name');
+    $salesReport->Quantity = $request->input('Quantity');
+    $salesReport->Price = $request->input('Price');
+    $salesReport->Date = $request->input('Date');
+    $salesReport->save();
 
-    // Redirect or perform any other actions after saving the sales report
-    // Retrieve the product name from the associated Inventory model
-    // $product_Name = $salesreport->inventory->product_Name;
+    return redirect(route('Generate Sales Report.reportList'));
+    }
 
-    // Example redirect to the report list
-    return redirect()->route('Generate Sales Report.reportList')->with('success', 'Sales report created successfully');
-}
+    // $salesreport = new SalesReport();
+    // $salesreport = SalesReport::find($Sales_ID);
+    // $salesreport = $request->input('User_ID');
+    // $salesreport = $request->input('Inventory_ID');
+    // $salesreport = $request->input('product_Name');
+    // $salesreport = $request->input('Quantity');
+    // $salesreport = $request->input('Price');
+    // $salesreport = $request->input('Date');
+    // $salesreport->save();
+
+
+    // if ($salesreport) {
+    //     $salesreport->save();
+    // } else {
+    //     // Handle the case when the object is null or empty
+    // }
+    
+
+//     return redirect(route('Generate Sales Report.reportList'));
+//     // Redirect or perform any other actions after saving the sales report
+//     // Retrieve the product name from the associated Inventory model
+//     // $product_Name = $salesreport->inventory->product_Name;
+
+//     // Example redirect to the report list
+//     // return redirect()->route('Generate Sales Report.reportList')->with('success', 'Sales report created successfully');
+// }
 
 
 
@@ -75,6 +97,7 @@ class SalesReportController extends Controller
     $salesreport->product_Name = $request->input('product_Name');
     $salesreport->Price = $request->input('Quantity');
     $salesreport->Quantity = $request->input('Price');
+    $salesreport->Date = $request->input('Date');
     $salesreport->save();
 
     // Redirect or perform any other actions after updating the sales report

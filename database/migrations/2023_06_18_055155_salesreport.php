@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('salesreport', function (Blueprint $table) {
             $table->id('Sales_ID');
-            $table->foreignId('User_ID');
+            $table->foreignId('User_ID')->constrained();
             $table->foreignId('Inventory_ID');
             $table->string('product_Name');
             $table->integer('Quantity');

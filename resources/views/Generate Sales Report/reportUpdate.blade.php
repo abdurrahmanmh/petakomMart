@@ -5,7 +5,7 @@
 
                 <!-- Flowbite Table -->
 
-                <form method="POST" action="{{ route('inventory.update', $inventory->inventory_id) }}" class="mt-6 space-y-6">
+                <form method="POST" action="{{ route('Generate Sales Report.reportUpdate', $inventory->inventory_id) }}" class="mt-6 space-y-6">
                     @csrf
                     @method('put')
 
