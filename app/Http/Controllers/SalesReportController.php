@@ -31,11 +31,11 @@ class SalesReportController extends Controller
     public function store(Request $request)
     {
     $salereport = new SalesReport();
-    $salereport->cashier_id = $request->input('cashier_id');
-    $salereport->product_id = $request->input('product_id');
-    $salereport->product_name = $request->input('product_name');
-    $salereport->price = $request->input('price');
-    $salereport->quantity = $request->input('quantity');
+    $salereport->User_ID = $request->input('User_ID');
+    $salereport->Inventory_ID = $request->input('Inventory_ID');
+    $salereport->product_Name = $request->input('product_Name');
+    $salereport->Price = $request->input('Price');
+    $salereport->Quantity = $request->input('Quantity');
     $salereport->save();
 
     // Redirect or perform any other actions after saving the sales report

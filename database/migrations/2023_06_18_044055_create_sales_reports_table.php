@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('salesreport', function (Blueprint $table) {
             $table->id('Sales_ID');
-            $table->string('product_Name');
-            $table->integer('quantity');
-            $table->double('price',10,2);
+            $table->foreignId('User_ID');
+            $table->foreignId('Inventory_ID');
+            $table->foreignId('Payment_ID');
+            $table->date('Date');
             $table->timestamps();
         });
     }

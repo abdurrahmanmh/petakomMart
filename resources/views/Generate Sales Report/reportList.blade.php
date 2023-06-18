@@ -2,27 +2,29 @@
 
 @section('content')
     <div class="container">
-        <h1>Report List</h1>
+        <h1>Generate Sales Report List</h1>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Sales ID</th>
-                    <th>Cashier ID</th>
-                    <th>Product ID</th>
+                    <th>User ID</th>
+                    <th>Inventory ID</th>
                     <th>Product Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($sales as $sale)
+                @foreach ($sales as $salereport)
                     <tr>
-                        <td>{{ $sale->id }}</td>
-                        <td>{{ $sale->cashier_id }}</td>
-                        <td>{{ $sale->product_id }}</td>
-                        <td>{{ $sale->product->name }}</td>
-                        <td>{{ $sale->product->price }}</td>
-                        <td>{{ $sale->quantity }}</td>
+                        <td>{{ $salereport->Sales_ID }}</td>
+                        <td>{{ $salereport->User_ID}}</td>
+                        <td>{{ $salereport->Inventory_ID}}</td>
+                        <td>{{ $salereport->Inventory->name }}</td>
+                        <td>{{ $salereport->Inventory->price }}</td>
+                        <td>{{ $salereport->Inventory->quantity }}</td>
+                        <td>{{ $salereport->date }}</td>
                     </tr>
                 @endforeach
             </tbody>
