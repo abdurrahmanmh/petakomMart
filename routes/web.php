@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SalesReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::get('/dutyRosters', [DutyRosterController::class, 'index']) ->name('Manage Duty Roster.schedule'); 
-
+Route::get('/salesreport', [SalesReportController::class,'index'])->name('Generate Sales Report.reportList')->middleware('auth');
+Route::get('/salesreport/create', [SalesReportController::class,'create'])->name('Generate Sales Report.reportAdd');
+Route::post('/salesreport', [SalesReportController::class,'store'])->name('salesreport.store');
+Route::get('/salesreport/{salesreport}/edit', [SalesReportController::class,'edit'])->name('salesreport.edit');
+Route::put('/salesreport/{salesreport}', [SalesReportController::class,'update'])->name('salesreport.update');
+Route::delete('/salesreport/{salesreport}', [SalesReportController::class,'destroy'])->name('salesreport.destroy');
 require __DIR__.'/auth.php';
