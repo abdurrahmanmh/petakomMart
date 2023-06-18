@@ -5,39 +5,33 @@
 
                 <!-- Flowbite Table -->
 
-                <form method="POST" action="{{ route('Generate Sales Report.reportUpdate', $inventory->inventory_id) }}" class="mt-6 space-y-6">
+                <form method="POST" action="{{ route('Generate Sales Report.reportUpdate', $salesreport->Sales_ID) }}" class="mt-6 space-y-6">
                     @csrf
                     @method('put')
 
                     <div class="mb-6">
-                        <label for="product_Name" :value="__('product_Name')"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task</label>
+                        <label for="salesreport" :value="__('product_Name')"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
                         <input type="text" id="product_Name" name="product_Name"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                            placeholder="product_Name" required value="{{ $inventory->product_Name }}" >
+                            placeholder="product_Name" required value="{{ $salesreport->product_Name }}" >
 
-                        <label for="quantity" :value="__('quantity')"
+                        <label for="salesreport" :value="__('quantity')"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quantity</label>
-                        <input type="number" id="quantity" name="quantity"
+                        <input type="number" id="Quantity" name="Quantity"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                            placeholder="quantity" required value="{{ $inventory->quantity }}"/>
+                            placeholder="quantity" required value="{{ $salesreport->Quantity }}"/>
 
-                        <label for="price" :value="__('price')"
+                        <label for="salesreport" :value="__('price')"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                        <input type="number" id="price" name="price"
+                        <input type="double" id="Price" name="Price"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                            placeholder="price" required pattern="\d+(\.\d+)?" value="{{ $inventory->price }}">
-
-                        <label for="notes" :value="__('notes')"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Notes</label>
-                        <input type="text" id="notes" name="notes"
-                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                            placeholder="notes" required value="{{ $inventory->notes }}">
+                            placeholder="price" required pattern="\d+(\.\d+)?" value="{{ $salesreport->Price }}">
                     </div>
                     <div class="flex items-center gap-4">
                         <x-primary-button>{{ __('Save') }}</x-primary-button>
 
-                        <a href="{{ route('inventory.index') }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Cancel</a>
+                        <a href="{{ route('Generate Sales Report.reportList') }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Cancel</a>
 
                     </div>
 
