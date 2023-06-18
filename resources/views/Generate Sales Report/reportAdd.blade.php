@@ -17,15 +17,15 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="cashier_id">User ID:</label>
-                                    <input type="text" class="form-control" id="cashier_id" name="cashier_id" required>
+                                    <input type="text" class="form-control" id="user_id" name="cashier_id" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="product_id">Inventory ID:</label>
-                                    <input type="text" class="form-control" id="product_id" name="product_id" required>
+                                    <input type="text" class="form-control" id="inventory_id" name="product_id" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="product_name">Product Name:</label>
-                                    <input type="text" class="form-control" id="product_name" name="product_name" required>
+                                    <input type="text" class="form-control" id="product_Name" name="product_Name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Price:</label>

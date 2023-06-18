@@ -33,15 +33,15 @@ class SalesReportController extends Controller
     $salesreport = new SalesReport();
     $salesreport->User_ID = $request->input('User_ID');
     $salesreport->Inventory_ID = $request->input('Inventory_ID');
-    $salesreport->product_Name = $request->input('Product_name');
+    $salesreport->product_Name = $request->input('product_Name');
     $salesreport->Price = $request->input('Price');
     $salesreport->Quantity = $request->input('Quantity');
-    $salesreport->save();
+    // $salesreport->save();
 
     // Redirect or perform any other actions after saving the sales report
 
     // Example redirect to the report list
-    return redirect()->route('report.list');
+    return redirect()->route('Generate Sales Report.reportList');
     }
 
 
