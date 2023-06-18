@@ -30,13 +30,13 @@ class SalesReportController extends Controller
      */
     public function store(Request $request)
     {
-    $salereport = new SalesReport();
-    $salereport->User_ID = $request->input('User_ID');
-    $salereport->Inventory_ID = $request->input('Inventory_ID');
-    $salereport->product_Name = $request->input('product_Name');
-    $salereport->Price = $request->input('Price');
-    $salereport->Quantity = $request->input('Quantity');
-    $salereport->save();
+    $salesreport = new SalesReport();
+    $salesreport->User_ID = $request->input('User_ID');
+    $salesreport->Inventory_ID = $request->input('Inventory_ID');
+    $salesreport->product_Name = $request->input('Product_name');
+    $salesreport->Price = $request->input('Price');
+    $salesreport->Quantity = $request->input('Quantity');
+    $salesreport->save();
 
     // Redirect or perform any other actions after saving the sales report
 
@@ -66,13 +66,13 @@ class SalesReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-    $salereport = SalesReport::findOrFail($id);
-    $salereport->cashier_id = $request->input('cashier_id');
-    $salereport->product_id = $request->input('product_id');
-    $salereport->product_name = $request->input('product_name');
-    $salereport->price = $request->input('price');
-    $salereport->quantity = $request->input('quantity');
-    $salereport->save();
+    $salesreport = SalesReport::findOrFail($id);
+    $salesreport->cashier_id = $request->input('User_ID');
+    $salesreport->product_id = $request->input('Inventory_ID');
+    $salesreport->product_name = $request->input('Product_name');
+    $salesreport->price = $request->input('Price');
+    $salesreport->quantity = $request->input('Quantity');
+    $salesreport->save();
 
     // Redirect or perform any other actions after updating the sales report
 
@@ -86,8 +86,8 @@ class SalesReportController extends Controller
      */
     public function destroy($id)
     {
-    $salereport = SalesReport::findOrFail($id);
-    $salereport->delete();
+    $salesreport = SalesReport::findOrFail($id);
+    $salesreport->delete();
 
     // Redirect or perform any other actions after deleting the sales report
 
