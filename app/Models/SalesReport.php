@@ -21,4 +21,6 @@ class SalesReport extends Model
         'Payment_ID',
         'Date',
     ];
-}
+
+//     public function 
+// }
