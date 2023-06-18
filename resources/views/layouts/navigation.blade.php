@@ -15,8 +15,8 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('Manage Payment Activities.paymentList')" :active="request()->routeIs('Manage Payment Activities.cashPaySlot')">
-                        {{ __('Payment') }}
+                    <x-nav-link :href="route('Manage Payment Activities.cashPaySlot')" :active="request()->routeIs('Manage Payment Activities.cashPaySlot')">
+                        {{ __('Payment Activities') }}
                     </x-nav-link>
                 </div>
             </div>
