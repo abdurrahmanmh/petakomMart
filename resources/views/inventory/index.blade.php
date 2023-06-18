@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -39,7 +38,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($salesreport as $report)
+            @foreach ($inventories as $inventory)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{ $loop->iteration }}
@@ -54,7 +53,7 @@
                    {{ $report->Inventory_ID}}
                 </td>
                 <td class="px-6 py-4">
-                {{ $report->Inventory->product_Name }}
+                {{ $report->Inventory->Product_name }}
                 </td>
                 <td class="px-6 py-4">
                 {{ $report->Inventory->Quantity }}
@@ -63,27 +62,30 @@
                 {{ $report->date }}
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="{{ route('Generate Sales Report.reportUpdate', $report->Sales_ID) }}"
+                    <a href="{{ route('inventory.edit', $inventory->inventory_id) }}"
                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                         Edit
                     </a>
 
-                    <!-- <form method="POST" action="{{ route('inventory.destroy',$report->Sales_ID) }}">
+                    <form method="POST" action="{{ route('inventory.destroy',$inventory->inventory_id) }}">
                         @csrf
                         @method('delete')
 
                         <x-primary-button>{{ __('Delete') }}</x-primary-button>
 
-                    </form> -->
+                    </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    <a href="{{ route('Generate Sales Report.reportAdd') }}"
+    <a href="{{ route('inventory.create') }}"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
-                Report</a>
+                Task</a>
 </div>
+
+
+
             </div>
         </div>
     </div>

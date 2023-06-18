@@ -22,7 +22,7 @@ class SalesReportController extends Controller
      */
     public function create()
     {
-        //
+        return view('Generate Sales Report.reportAdd');
     }
 
     /**
