@@ -5,9 +5,8 @@
 
                 <!-- Flowbite Table -->
 
-                <form method="POST" action="{{ route('Generate Sales Report.reportUpdate', $salesreport->Sales_ID) }}" class="mt-6 space-y-6">
+                <form method="POST" action="{{ route('salesreport.update', $salesreport->Sales_ID) }}" class="mt-6 space-y-6">
                     @csrf
-                    @method('put')
 
                     <div class="mb-6">
                         <label for="salesreport" :value="__('product_Name')"
@@ -16,13 +15,13 @@
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                             placeholder="product_Name" required value="{{ $salesreport->product_Name }}" >
 
-                        <label for="salesreport" :value="__('quantity')"
+                        <label for="salesreport" :value="__('Quantity')"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quantity</label>
                         <input type="number" id="Quantity" name="Quantity"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                             placeholder="quantity" required value="{{ $salesreport->Quantity }}"/>
 
-                        <label for="salesreport" :value="__('price')"
+                        <label for="salesreport" :value="__('Price')"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
                         <input type="double" id="Price" name="Price"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"

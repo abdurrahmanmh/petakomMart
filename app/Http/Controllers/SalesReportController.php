@@ -44,7 +44,7 @@ class SalesReportController extends Controller
      */
     public function show(SalesReport $salesReport)
     {
-        //
+        return view('Generate Sales Report/reportUpdate', ['salesreport' => $salesReport]);
     }
 
     /**
@@ -52,13 +52,12 @@ class SalesReportController extends Controller
      */
     public function edit(SalesReport $salesReport)
     {
-        return view('Generate Sales Report/reportUpdate', ['salesreport' => $salesReport]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $Sales_ID)
+    public function update(Request $request, SalesReport $Sales_ID)
     {
         $sale = SalesReport::create([
             'user_id' => Auth::user()->id,
@@ -86,7 +85,7 @@ class SalesReportController extends Controller
     public function destroy(SalesReport $Sales_ID)
     {
         $Sales_ID->delete();
-        return redirect()->route('Generate Sales Report.reportList');
+        
+        return redirect(route('Generate Sales Report.reportList'));
     }
-
 }
