@@ -18,12 +18,15 @@ class SalesReport extends Model
         'Sales_ID',
         'User_ID',
         'Inventory_ID',
+        'product_Name',
+        'Quantity',
+        'Price',
         'Date',
     ];
 
-    public function inventory()
-    {
-        return $this->belongsTo(Inventory::class, 'Inventory_ID');
-    }
+    // public function inventory()
+    // {
+    //     return $this->belongsTo(Inventory::class, 'Inventory_ID');
+    // }
 }
 

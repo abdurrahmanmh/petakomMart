@@ -33,17 +33,17 @@ class SalesReportController extends Controller
     $salesreport = new SalesReport();
     $salesreport->User_ID = $request->input('User_ID');
     $salesreport->Inventory_ID = $request->input('Inventory_ID');
-    $salesreport->Price = $request->input('Price');
-    $salesreport->Quantity = $request->input('Quantity');
+    $salesreport->product_Name = $request->input('product_Name');
+    $salesreport->Price = $request->input('Quantity');
+    $salesreport->Quantity = $request->input('Price');
     $salesreport->save();
 
     // Redirect or perform any other actions after saving the sales report
     // Retrieve the product name from the associated Inventory model
-    $product_Name = $salesreport->inventory->product_Name;
+    // $product_Name = $salesreport->inventory->product_Name;
 
     // Example redirect to the report list
     return redirect()->route('Generate Sales Report.reportList')->with('success', 'Sales report created successfully');
-    return response()->json(['product_Name' => $product_Name]);
 }
 
 
@@ -69,12 +69,12 @@ class SalesReportController extends Controller
      */
     public function update(Request $request, $Sales_ID)
     {
-    $salesreport = SalesReport::findOrFail($Sales_ID);
-    $salesreport->cashier_id = $request->input('User_ID');
-    $salesreport->product_id = $request->input('Inventory_ID');
-    $salesreport->product_name = $request->input('Product_name');
-    $salesreport->price = $request->input('Price');
-    $salesreport->quantity = $request->input('Quantity');
+    $salesreport = new SalesReport();
+    $salesreport->User_ID = $request->input('User_ID');
+    $salesreport->Inventory_ID = $request->input('Inventory_ID');
+    $salesreport->product_Name = $request->input('product_Name');
+    $salesreport->Price = $request->input('Quantity');
+    $salesreport->Quantity = $request->input('Price');
     $salesreport->save();
 
     // Redirect or perform any other actions after updating the sales report
