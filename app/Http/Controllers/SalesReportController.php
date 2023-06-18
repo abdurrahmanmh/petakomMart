@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\SalesReport;
 use Illuminate\Http\Request;
-
+use Auth;
 class SalesReportController extends Controller
 {
     /**
@@ -29,14 +29,12 @@ class SalesReportController extends Controller
      */
     public function store(Request $request)
     {
-    $salesReport = new SalesReport();
-    $salesReport->User_ID = $request->input('User_ID');
-    $salesReport->Inventory_ID = $request->input('Inventory_ID');
-    $salesReport->product_Name = $request->input('product_Name');
-    $salesReport->Quantity = $request->input('Quantity');
-    $salesReport->Price = $request->input('Price');
-    $salesReport->Date = $request->input('Date');
-    $salesReport->save();
+        $sale = SalesReport::create([
+            'user_id' => Auth::user()->id,
+            'product_Name' => $request->product_Name,
+            'Quantity' => $request->Quantity,
+            'Price' => $request->Price,
+        ]);
 
     return redirect(route('Generate Sales Report.reportList'));
     }
@@ -110,15 +108,10 @@ class SalesReportController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($Sales_ID)
+    public function destroy(SalesReport $Sales_ID)
     {
-    $salesreport = SalesReport::findOrFail($Sales_ID);
-    $salesreport->delete();
-
-    // Redirect or perform any other actions after deleting the sales report
-
-    // Example redirect to the report list
-    return redirect()->route('Generate Sales Report.reportList');
+        $Sales_ID->delete();
+        return redirect()->route('Generate Sales Report.reportList');
     }
 
 }

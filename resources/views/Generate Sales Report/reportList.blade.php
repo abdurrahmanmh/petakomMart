@@ -69,22 +69,11 @@
                 {{ $report->Date }}
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="{{ route('Generate Sales Report.reportUpdate', $report->Sales_ID) }}"
-                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                        Edit
-                    </a>
-                    <a href="{{ route('Generate Sales Report.reportDelete', $report->Sales_ID) }}"
-                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                        Delete
-                    </a>
-
-                    <!-- <form method="POST" action="{{ route('inventory.destroy',$report->Sales_ID) }}">
+                    <form action="{{ route('salesreport.destroy', ['Sales_ID'=>$report->Sales_ID]) }}" method="POST">
                         @csrf
                         @method('delete')
-
-                        <x-primary-button>{{ __('Delete') }}</x-primary-button>
-
-                    </form> -->
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
