@@ -22,5 +22,9 @@ class SalesReport extends Model
         'Date',
     ];
 
-//     public function 
-// }
+    public function inventory()
+    {
+        return $this->belongsTo(Inventory::class, 'Inventory_ID');
+    }
+}
+
