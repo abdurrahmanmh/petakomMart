@@ -28,6 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/dutyRosters', [DutyRosterController::class, 'index']) ->name('dutyRosters.index'); 
+Route::get('/dutyRosters', [DutyRosterController::class, 'index']) ->name('Manage Duty Roster.schedule'); 
 
 require __DIR__.'/auth.php';
