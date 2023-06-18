@@ -14,7 +14,7 @@ class SalesReportController extends Controller
     {
         $salesreport = SalesReport::all(); // Assuming you have a Sale model and sales data stored in the database
 
-    return view('Generate Sales Report.reportList');
+    return view('Generate Sales Report.reportList', ['salesreport' => $salesreport]);
     }
 
     /**
