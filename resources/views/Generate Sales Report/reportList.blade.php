@@ -16,15 +16,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($sales as $salereport)
+                @foreach ($salesreport as $salesreport)
                     <tr>
-                        <td>{{ $salereport->Sales_ID }}</td>
-                        <td>{{ $salereport->User_ID}}</td>
-                        <td>{{ $salereport->Inventory_ID}}</td>
-                        <td>{{ $salereport->Inventory->name }}</td>
-                        <td>{{ $salereport->Inventory->price }}</td>
-                        <td>{{ $salereport->Inventory->quantity }}</td>
-                        <td>{{ $salereport->date }}</td>
+                        <td>{{ $salesreport->Sales_ID }}</td>
+                        <td>{{ $salesreport->User_ID}}</td>
+                        <td>{{ $salesreport->Inventory_ID}}</td>
+                        <td>{{ $salesreport->Inventory->name }}</td>
+                        <td>{{ $salesreport->Inventory->price }}</td>
+                        <td>{{ $salesreport->Inventory->quantity }}</td>
+                        <td>{{ $salesreport->date }}</td>
                     </tr>
                 @endforeach
             </tbody>
