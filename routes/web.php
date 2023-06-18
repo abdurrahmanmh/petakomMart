@@ -32,6 +32,6 @@ Route::get('/salesreport', [SalesReportController::class,'index'])->name('Genera
 Route::get('/salesreport/create', [SalesReportController::class,'create'])->name('Generate Sales Report.reportAdd');
 Route::post('/salesreport', [SalesReportController::class,'store'])->name('salesreport.store');
 Route::get('/salesreport/{salesreport}/edit', [SalesReportController::class,'edit'])->name('salesreport.edit');
-Route::put('/salesreport/{salesreport}', [SalesReportController::class,'update'])->name('salesreport.update');
+Route::put('/salesreport/{salesreport}', [SalesReportController::class,'update'])->name('Generate Sales Report.reportUpdate');
 Route::delete('/salesreport/{salesreport}', [SalesReportController::class,'destroy'])->name('salesreport.destroy');
 require __DIR__.'/auth.php';

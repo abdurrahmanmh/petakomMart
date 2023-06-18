@@ -28,10 +28,13 @@
                 Product Name
                 </th>
                 <th scope="col" class="px-6 py-3">
+                Quantity
+                </th>
+                <th scope="col" class="px-6 py-3">
                 Price
                 </th>
                 <th scope="col" class="px-6 py-3">
-                Quantity
+                Date
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <span class="sr-only">Edit</span>
@@ -51,16 +54,19 @@
                 {{ $report->User_ID}}
                 </td>
                 <td class="px-6 py-4">
-                {{ $report->inventory->Inventory_ID}}
+                {{ $report->Inventory_ID}}
                 </td>
                 <td class="px-6 py-4">
-                {{ $report->inventory->product_Name }}
+                {{ $report->product_Name }}
                 </td>
                 <td class="px-6 py-4">
-                {{ $report->inventory->Quantity }}
+                {{ $report->Quantity }}
                 </td>
                 <td class="px-6 py-4">
-                {{ $report->date }}
+                {{ $report->Price }}
+                </td>
+                <td class="px-6 py-4">
+                {{ $report->Date }}
                 </td>
                 <td class="px-6 py-4 text-right">
                     <a href="{{ route('Generate Sales Report.reportUpdate', $report->Sales_ID) }}"

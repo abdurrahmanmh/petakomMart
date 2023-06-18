@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id('Sales_ID');
             $table->foreignId('User_ID');
             $table->foreignId('Inventory_ID');
-            
+            $table->string('product_Name');
+            $table->integer('Quantity');
+            $table->double('Price');
             $table->date('Date');
             $table->timestamps();
         });
