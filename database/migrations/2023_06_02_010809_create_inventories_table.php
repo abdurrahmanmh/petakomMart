@@ -9,6 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    //inventory table
     public function up(): void
     {
         Schema::create('inventories', function (Blueprint $table) {

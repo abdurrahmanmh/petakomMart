@@ -9,6 +9,8 @@ class Inventory extends Model
 {
   
     use HasFactory;
+
+    //declare primary key
     protected $primaryKey = 'inventory_id';
     public function user()
     {

@@ -30,10 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/inventory', [InventoryController::class,'index'])->name('inventory.index')->middleware('auth');
-Route::get('/inventory/create', [InventoryController::class,'create'])->name('inventory.create');
+Route::get('/inventory', [InventoryController::class,'index'])->name('inventory.inventoryList')->middleware('auth');
+Route::get('/inventory/create', [InventoryController::class,'create'])->name('inventory.inventoryAdd');
 Route::post('/inventory', [InventoryController::class,'store'])->name('inventory.store');
-Route::get('/inventory/{inventory}/edit', [InventoryController::class,'edit'])->name('inventory.edit');
+Route::get('/inventory/{inventory}/edit', [InventoryController::class,'edit'])->name('inventory.inventoryEdit');
 Route::put('/inventory/{inventory}', [InventoryController::class,'update'])->name('inventory.update');
 Route::delete('/inventory/{inventory}', [InventoryController::class,'destroy'])->name('inventory.destroy');
 /*

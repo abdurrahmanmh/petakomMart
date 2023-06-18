@@ -13,12 +13,12 @@ class InventoryController extends Controller
      */
     public function index()
     {
-                $inventories =Inventory::all();
-                //$inventories = Auth::user()->inventory;
-
-                //$todos=Todo::with('user')->get();
-                return view('inventory.index', ['inventories' => $inventories]);
-                //
+        //view inventory
+        $inventories = Inventory::all();
+        //$inventories = Auth::user()->inventory;
+        //$todos=Todo::with('user')->get();
+        return view('inventory.inventoryList', ['inventories' => $inventories]);
+        //
     }
 
     /**
@@ -26,7 +26,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        return view('inventory.create');
+        return view('inventory.inventoryAdd');
     }
 
     /**
@@ -34,7 +34,7 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
             'product_Name' => 'required|string|max:255'
         ]);
@@ -48,8 +48,7 @@ class InventoryController extends Controller
         $inventory->notes = $request->notes;
         $inventory->save();
 
-        return redirect(route('inventory.index'));
-        
+        return redirect(route('inventory.inventoryList'));
     }
 
     /**
@@ -65,9 +64,8 @@ class InventoryController extends Controller
      */
     public function edit(Inventory $inventory)
     {
-        
-        return view('inventory/edit', ['inventory' => $inventory]);
-        
+        //go to edit inventory
+        return view('inventory/inventoryEdit', ['inventory' => $inventory]);
     }
 
     /**
@@ -75,7 +73,7 @@ class InventoryController extends Controller
      */
     public function update(Request $request, Inventory $inventory)
     {
-        
+        //update inventory data
         $request->validate([
             'product_Name' => 'required|string|max:255',
             'quantity' => 'required|numeric',
@@ -90,8 +88,7 @@ class InventoryController extends Controller
 
         $inventory->update();
 
-        return redirect(route('inventory.index'));
-    
+        return redirect(route('inventory.inventoryList'));
     }
 
     /**
@@ -99,10 +96,9 @@ class InventoryController extends Controller
      */
     public function destroy(Inventory $inventory)
     {
-        
+        //delete data
         $inventory->delete();
 
-        return redirect(route('inventory.index'));
-        
+        return redirect(route('inventory.inventoryList'));
     }
 }
