@@ -13,16 +13,13 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                No
-                </th>
-                <th scope="col" class="px-6 py-3">
-                Sales ID
+                Payment ID
                 </th>
                 <th scope="col" class="px-6 py-3">
                 User ID
                 </th>
                 <th scope="col" class="px-6 py-3">
-                Inventory ID
+                Sales ID
                 </th>
                 <th scope="col" class="px-6 py-3">
                 Product Name
@@ -34,7 +31,10 @@
                 Price
                 </th>
                 <th scope="col" class="px-6 py-3">
-                Date
+                Total Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                Pay Type
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <span class="sr-only">Edit</span>
@@ -42,57 +42,57 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($salesreport as $report)
+            @foreach ($payments as $payment)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{ $loop->iteration }}
                 </th>
+
                 <td class="px-6 py-4">
-                {{ $report->Sales_ID }}
+                {{ $payment->Payment_ID }}
                 </td>
+
                 <td class="px-6 py-4">
-                {{ $report->User_ID}}
+                {{ $payment->User_ID}}
                 </td>
+
                 <td class="px-6 py-4">
-                {{ $report->Inventory_ID}}
+                {{ $payment->Sales_ID}}
                 </td>
+
                 <td class="px-6 py-4">
-                {{ $report->product_Name }}
+                {{ $payment->Product_name}}
                 </td>
+
                 <td class="px-6 py-4">
-                {{ $report->Quantity }}
+                {{ $payment->Quantity }}
                 </td>
+
                 <td class="px-6 py-4">
-                {{ $report->Price }}
+                {{ $payment->price }}
                 </td>
+
                 <td class="px-6 py-4">
-                {{ $report->Date }}
+                {{ $payment->Total_Price }}
+                </td>
+
+                <td class="px-6 py-4">
+                {{ $payment->payType }}
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="{{ route('Generate Sales Report.reportUpdate', $report->Sales_ID) }}"
-                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                        Edit
-                    </a>
-                    <a href="{{ route('Generate Sales Report.reportDelete', $report->Sales_ID) }}"
-                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                        Delete
-                    </a>
-
-                    <!-- <form method="POST" action="{{ route('inventory.destroy',$report->Sales_ID) }}">
+                    <form action="{{ route('payment.destroy', ['Payment_ID' => $payment->Payment_ID])}}" method="POST">
                         @csrf
                         @method('delete')
-
-                        <x-primary-button>{{ __('Delete') }}</x-primary-button>
-
-                    </form> -->
+                        <button>delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    <a href="{{ route('Generate Sales Report.reportAdd') }}"
+    <a href="{{ route('Manage Payment Activities.paymentAdd') }}"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
-                Report</a>
+                Payment</a>
 </div>
             </div>
         </div>

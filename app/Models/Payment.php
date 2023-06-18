@@ -9,14 +9,20 @@ class Payment extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'Payment_ID';
+
     protected $fillable = [
         'Payment_ID',
         'User_ID',
-        'Sales_ID',
         'Product_name',
         'quantity',
         'price',
         'Total_Price',
         'payType'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

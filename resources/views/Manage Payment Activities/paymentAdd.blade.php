@@ -14,21 +14,9 @@
                 <form method="post" action="{{ route('payment.store') }}" class="mt-6 space-y-6">
                     @csrf
                     <div class="mb-6">
-                        <label for="inventory" :value="__('payment_id')"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User ID</label>
-                        <input type="text" id="user_id" name="user_id"
-                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                            placeholder="Insert User ID" required>
-                            <div class="mb-6">
-                        <label for="inventory" :value="__('inventory_id')"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Inventory ID</label>
-                        <input type="text" id="inventory_id" name="inventory_id"
-                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                            placeholder="Insert Inventory ID" required>
-                    <div class="mb-6">
                         <label for="inventory" :value="__('product_Name')"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
-                        <input type="text" id="product_Name" name="product_Name"
+                        <input type="text" id="Product_name" name="Product_name"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                             placeholder="Product Name" required>
 
@@ -40,9 +28,23 @@
 
                         <label for="price" :value="__('price')"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                        <input type="number" id="task" name="price"
+                        <input type="number" id="price" name="price"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                             placeholder="Price" required pattern="\d+(\.\d+)?">
+
+                            <div class="mb-6">
+                        <label for="paymentuser" :value="__('totalprice')"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total_Price</label>
+                        <input type="text" id="Total_Price" name="Total_Price"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                            placeholder="Insert Total Price" required>
+
+                            <div class="mb-6">
+                        <label for="paymentuser" :value="__('payType')"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pay type</label>
+                        <input type="text" id="payType" name="payType"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                            placeholder="Insert Payment Type" required>
 
                     </div>
                     <div class="flex items-center gap-4">
