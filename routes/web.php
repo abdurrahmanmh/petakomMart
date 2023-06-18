@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/salesreport', [SalesReportController::class,'index'])->name('salesreport.index')->middleware('auth');
+Route::get('/salesreport', [SalesReportController::class,'index'])->name('Generate Sales Report.reportList')->middleware('auth');
 Route::get('/salesreport/create', [SalesReportController::class,'create'])->name('salesreport.create');
 Route::post('/salesreport', [SalesReportController::class,'store'])->name('salesreport.store');
 Route::get('/salesreport/{salesreport}/edit', [SalesReportController::class,'edit'])->name('salesreport.edit');
