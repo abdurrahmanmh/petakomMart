@@ -29,7 +29,12 @@ class DutyRosterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $duties = new dutyRoster();
+        $duties-> Duty_Roster_ID = $request->input ('Duty_Roster_ID');
+        $duties-> Date = $request->input ('Date');
+        $duties-> Time = $request->input ('Time');
+        // $duties -> save ();
+
     }
 
     /**
@@ -53,8 +58,15 @@ class DutyRosterController extends Controller
      */
     public function update(Request $request, dutyRoster $dutyRoster)
     {
-        //
+        $duties = new dutyRoster();
+        $duties-> Duty_Roster_ID = $request->input ('Duty_Roster_ID');
+        $duties-> Date = $request->input ('Date');
+        $duties-> Time = $request->input ('Time');
+        $duties -> save ();
+
+        return redirect()->route('');
     }
+
 
     /**
      * Remove the specified resource from storage.

@@ -41,3 +41,6 @@ Route::get('/dutyRoster', [dutyRosterController::class,'index'])->name('Manage D
 Route::post('/dutyRoster', [dutyRosterController::class,'create'])->name('Manage Duty Roster.slotAdd');
 Route::put('/dutyRoster/{id}', [dutyRosterController::class,'edit'])->name('Manage Duty Roster.slotUpdate');
 
+
+
+

@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('duty_rosters', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('Duty_Roster_ID');
+            $table->DATE('Date');
+            $table->TIME('Time');
+            
         });
     }
 
