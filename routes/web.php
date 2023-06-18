@@ -31,7 +31,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/salesreport', [SalesReportController::class,'index'])->name('Generate Sales Report.reportList')->middleware('auth');
 Route::get('/salesreport/create', [SalesReportController::class,'create'])->name('Generate Sales Report.reportAdd');
 Route::post('/salesreport', [SalesReportController::class,'store'])->name('salesreport.store');
-Route::get('/salesreport/{salesreport}/edit', [SalesReportController::class,'edit'])->name('salesreport.edit');
-Route::put('/salesreport/{salesreport}', [SalesReportController::class,'update'])->name('Generate Sales Report.reportUpdate');
+Route::get('/salesreport/{salesreport}/edit', [SalesReportController::class,'edit'])->name('Generate Sales Report.reportUpdate');
+Route::put('/salesreport/{salesreport}', [SalesReportController::class,'update'])->name('salesreport.edit');
 Route::delete('/salesreport/{Sales_ID}', [SalesReportController::class,'destroy'])->name('salesreport.destroy');
+
 require __DIR__.'/auth.php';
