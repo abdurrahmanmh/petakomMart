@@ -65,6 +65,8 @@ Route::get('/payments/{Payment_ID}', [PaymentController::class,'edit'])->name('p
 Route::put('/payments/{Payment_ID}', [PaymentController::class,'update'])->name('Manage Payment Activities.paymentUpdate');
 Route::delete('/payments/{Payment_ID}', [PaymentController::class,'destroy'])->name('payment.destroy');
 
+//members
+Route::get('/members', [ProfileController::class,'index'])->name('profile.membersList')->middleware('auth');
 //Latihan
 /*
 Route::get('/todos', [TodoController::class,'index'])->name('todos.index')->middleware('auth');

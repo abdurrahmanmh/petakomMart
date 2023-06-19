@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('Manage Payment Activities.paymentList')" :active="request()->routeIs('Manage Payment Activities.paymentList')">
                         {{ __('Payment Activities') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('profile.membersList')" :active="request()->routeIs('profile.membersList')">
+                        {{ __('Members') }}
+                    </x-nav-link>
                 </div>
             </div>
 
