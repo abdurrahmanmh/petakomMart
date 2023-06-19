@@ -42,40 +42,30 @@ class SalesReportController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SalesReport $salesReport)
+    public function show()
     {
-        return view('Generate Sales Report/reportUpdate', ['salesreport' => $salesReport]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SalesReport $salesReport)
+    public function edit(SalesReport $Sales_ID)
     {
+        return view('Generate Sales Report.reportUpdate', ['salesreport' => $Sales_ID]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SalesReport $Sales_ID)
+    public function update(Request $request, SalesReport $sales)
     {
-        $sale = SalesReport::create([
-            'user_id' => Auth::user()->id,
-            'product_Name' => $request->product_Name,
-            'Quantity' => $request->Quantity,
-            'Price' => $request->Price,
-        ]);
+        $sales->product_Name = $request->product_Name;
+        $sales->Quantity = $request->Quantity;
+        $sales->Price = $request->Price;
 
-        $sale->product_Name = $request->product_Name;
-        $sale->quantity = $request->quantity;
-        $sale->price = $request->price;
+        $sales->update();
 
-        $sale->update();
-
-    // Redirect or perform any other actions after updating the sales report
-
-    // Example redirect to the report list
-    return redirect()->route('Generate Sales Report.reportList');
+        return redirect(route('Generate Sales Report.reportList', [$sales->Sales_ID]));
     }
 
 

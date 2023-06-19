@@ -69,9 +69,8 @@
                 {{ $report->Date }}
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <form action="{{ route('Generate Sales Report.reportUpdate', $report->Sales_ID) }}" method="POST">
+                    <form href="{{ route('salesreport.edit', ['Sales_ID'=>$report->Sales_ID]) }}" method="POST">
                         @csrf
-                        @method('put')
                         <button type="submit" class="btn btn-outline-danger">Edit</button>
                     </form>
 
