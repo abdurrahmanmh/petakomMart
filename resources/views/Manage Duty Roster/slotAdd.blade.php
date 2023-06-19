@@ -11,22 +11,22 @@
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <div class="container">
-                            <h1>Add Sales Report</h1>
+                            <h1>Add Slot Schedule</h1>
                             <br>
-                            <form method="POST" action="{{ route('salesreport.store') }}">
+                            <form method="POST" action="{{ route('schedule.store') }}">
                                 @csrf
                                 <div class="form-group">
                                     <label for="duty_roster_id"> ID:</label>
-                                    <input type="text" class="form-control" id="duty_roster_id" name="duty_roster_id" required>
+                                    <input type="text" class="form-control" id="Duty_Roster_ID" name="Duty_Roster_ID" required>
                                 </div>
                               
                                 <div class="form-group">
                                     <label for="date">Date:</label>
-                                    <input type="date" class="form-control" id="date" name="date" required>
+                                    <input type="date" class="form-control" id="Date" name="Date" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="time">Time:</label>
-                                    <input type="" class="form-control" id="time" name="time" required>
+                                    <input type="" class="form-control" id="Time" name="Time" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>

@@ -36,6 +36,7 @@ class PaymentController extends Controller
         $payment = Payment::create([
             'User_ID' => \Illuminate\Support\Facades\Auth::user()->id,
             'Product_name' => $request->Product_name,
+            'Sales_ID'=> \Illuminate\Support\Facades\Auth::user()->id,
             'quantity' => $request->quantity,
             'price' => $request->price,
             'Total_Price' => $request->Total_Price,

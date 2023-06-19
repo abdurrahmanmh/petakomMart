@@ -36,13 +36,20 @@
                 </td>
                 
                 <td class="px-6 py-4 text-right">
-                    <button>Delete</button>
+                    <form method="POST"
+                    action="{{ route('Manage Duty Roster.destroy', $duty->Duty_Roster_ID) }}">
+                    @csrf
+                    @method('delete')
+
+                    <x-primary-button>{{ __('Delete') }}</x-primary-button>
+
+                </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    <a href="{{ route('Manage Duty Roster.slotAdd') }}">Add New Slot</a>
+    <a href="{{ route('schedule.slotAdd') }}">Add New Slot</a>
 </div>
             </div>
         </div>

@@ -53,9 +53,10 @@ Route::delete('/salesreport/{Sales_ID}', [SalesReportController::class,'destroy'
 
 //duty roster route
 Route::get('/dutyRoster', [dutyRosterController::class,'index'])->name('Manage Duty Roster.Schedule')->middleware('auth');
-Route::post('/dutyRoster', [dutyRosterController::class,'create'])->name('Manage Duty Roster.slotAdd');
+Route::get('/dutyRoster/create', [dutyRosterController::class,'create'])->name('schedule.slotAdd');
+Route::post('/dutyRoster', [dutyRosterController::class,'store'])->name('schedule.store');
 Route::put('/dutyRoster/{id}', [dutyRosterController::class,'edit'])->name('Manage Duty Roster.slotUpdate');
-Route::delete('/dutyRoster', [dutyRosterControllert::class,'destroy'])->name('Manage Duty Roster.destroy');
+Route::delete('/dutyRoster/{id}', [dutyRosterController::class,'destroy'])->name('Manage Duty Roster.destroy');
 
 //payment route
 Route::get('/payments', [PaymentController::class,'index'])->name('Manage Payment Activities.paymentList')->middleware('auth');

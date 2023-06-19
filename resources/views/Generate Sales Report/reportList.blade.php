@@ -22,9 +22,6 @@
                 User ID
                 </th>
                 <th scope="col" class="px-6 py-3">
-                Inventory ID
-                </th>
-                <th scope="col" class="px-6 py-3">
                 Product Name
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -32,9 +29,6 @@
                 </th>
                 <th scope="col" class="px-6 py-3">
                 Price
-                </th>
-                <th scope="col" class="px-6 py-3">
-                Date
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <span class="sr-only">Edit</span>
@@ -51,10 +45,7 @@
                 {{ $report->Sales_ID }}
                 </td>
                 <td class="px-6 py-4">
-                {{ $report->User_ID}}
-                </td>
-                <td class="px-6 py-4">
-                {{ $report->Inventory_ID}}
+                {{ $report->user_ID}}
                 </td>
                 <td class="px-6 py-4">
                 {{ $report->product_Name }}
@@ -64,9 +55,6 @@
                 </td>
                 <td class="px-6 py-4">
                 {{ $report->Price }}
-                </td>
-                <td class="px-6 py-4">
-                {{ $report->Date }}
                 </td>
                 <td class="px-6 py-4 text-right">
                     <form href="{{ route('salesreport.edit', ['Sales_ID'=>$report->Sales_ID]) }}" method="POST">

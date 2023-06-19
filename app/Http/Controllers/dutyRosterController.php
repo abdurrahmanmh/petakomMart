@@ -33,7 +33,8 @@ class DutyRosterController extends Controller
         $duties-> Duty_Roster_ID = $request->input ('Duty_Roster_ID');
         $duties-> Date = $request->input ('Date');
         $duties-> Time = $request->input ('Time');
-        // $duties -> save ();
+        $duties -> save ();
+        return redirect(route('Manage Duty Roster.Schedule'));
 
     }
 
@@ -74,7 +75,7 @@ class DutyRosterController extends Controller
      */
     public function destroy($dutyRoster)
     {
-        $duties = dutyRoster::findOrFail($dutyRoster);
-        $duties->delete();
+        $dutyRoster->delete();  
+        return redirect(route('Manage Duty Roster.schedule'));
     }
 }

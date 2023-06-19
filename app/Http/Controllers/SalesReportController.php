@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SalesReport;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class SalesReportController extends Controller
 {
     /**
@@ -30,14 +30,16 @@ class SalesReportController extends Controller
      */
     public function store(Request $request)
     {
+
     $salesreport = new SalesReport();
-    $salesreport->User_ID = $request->input('User_ID');
-    $salesreport->Inventory_ID = $request->input('Inventory_ID');
-    $salesreport->product_Name = $request->input('product_Name');
+
+    $salesreport->User_ID = Auth::user()->id;
+    //$salesreport-> = Auth::user()->id;
+    $salesreport->product_Name = Auth::user()->id;
     $salesreport->Price = $request->input('Price');
     $salesreport->Quantity = $request->input('Quantity');
-    // $salesreport->save();
-
+    $salesreport->save();
+    
     // Redirect or perform any other actions after saving the sales report
 
     // Example redirect to the report list
@@ -68,7 +70,6 @@ class SalesReportController extends Controller
     {
     $salesreport = SalesReport::findOrFail($id);
     $salesreport->cashier_id = $request->input('User_ID');
-    $salesreport->product_id = $request->input('Inventory_ID');
     $salesreport->product_name = $request->input('Product_name');
     $salesreport->price = $request->input('Price');
     $salesreport->quantity = $request->input('Quantity');
