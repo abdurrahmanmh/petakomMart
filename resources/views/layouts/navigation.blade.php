@@ -18,6 +18,15 @@
                     <x-nav-link :href="route('inventory.inventoryList')" :active="request()->routeIs('inventory.inventoryList')">
                         {{ __('inventory') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('Manage Duty Roster.Schedule')" :active="request()->routeIs('Manage Duty Roster.Schedule')">
+                        {{ __('Schedule') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('Generate Sales Report.reportList')" :active="request()->routeIs('Generate Sales Report.reportList')">
+                        {{ __('Sales Report') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('Manage Payment Activities.paymentList')" :active="request()->routeIs('Manage Payment Activities.paymentList')">
+                        {{ __('Payment Activities') }}
+                    </x-nav-link>
                 </div>
             </div>
 
