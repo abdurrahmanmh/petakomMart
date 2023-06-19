@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 Route::get('/salesreport', [SalesReportController::class,'index'])->name('Generate Sales Report.reportList')->middleware('auth');
 Route::get('/salesreport/create', [SalesReportController::class,'create'])->name('Generate Sales Report.reportAdd');
 Route::post('/salesreport', [SalesReportController::class,'store'])->name('salesreport.store');
@@ -40,7 +41,7 @@ require __DIR__.'/auth.php';
 Route::get('/dutyRoster', [dutyRosterController::class,'index'])->name('Manage Duty Roster.Schedule')->middleware('auth');
 Route::post('/dutyRoster', [dutyRosterController::class,'create'])->name('Manage Duty Roster.slotAdd');
 Route::put('/dutyRoster/{id}', [dutyRosterController::class,'edit'])->name('Manage Duty Roster.slotUpdate');
-
+Route::delete('/dutyRoster', [dutyRosterControllert::class,'destroy'])->name('Manage Duty Roster.destroy');
 
 
 

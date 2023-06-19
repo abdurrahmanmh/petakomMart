@@ -54,7 +54,7 @@ class DutyRosterController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update new slot in the schedule.
      */
     public function update(Request $request, dutyRoster $dutyRoster)
     {
@@ -70,11 +70,11 @@ class DutyRosterController extends Controller
 
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the slot
      */
-    public function destroy(dutyRoster $dutyRoster)
+    public function destroy($dutyRoster)
     {
-        $duties = dutyRoster::findOrFail();
+        $duties = dutyRoster::findOrFail($dutyRoster);
         $duties->delete();
     }
 }
