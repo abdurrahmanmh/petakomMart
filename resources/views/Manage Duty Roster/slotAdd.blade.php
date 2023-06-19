@@ -1,47 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create Duty Roster Entry</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <title>Add Sales Report</title>
+    <!-- Include your CSS and JavaScript files here -->
 </head>
 <body>
-    <div class="container">
-        <h1>Create Duty Roster Entry</h1>
-        
-        <!-- Display any validation errors here -->
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+    <x-app-layout>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        <div class="container">
+                            <h1>Add Sales Report</h1>
+                            <br>
+                            <form method="POST" action="{{ route('salesreport.store') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="duty_roster_id"> ID:</label>
+                                    <input type="text" class="form-control" id="duty_roster_id" name="duty_roster_id" required>
+                                </div>
+                              
+                                <div class="form-group">
+                                    <label for="date">Date:</label>
+                                    <input type="date" class="form-control" id="date" name="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="time">Time:</label>
+                                    <input type="" class="form-control" id="time" name="time" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        @endif
-        
-        <form action="{{ route('duty.store') }}" method="POST">
-            @csrf
-            
-            <div class="form-group">
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" class="form-control" value="{{ old('date') }}">
-            </div>
-            
-            <div class="form-group">
-                <label for="employee">Employee:</label>
-                <input type="text" id="employee" name="employee" class="form-control" value="{{ old('employee') }}">
-            </div>
-            
-            <div class="form-group">
-                <label for="shift">Shift:</label>
-                <input type="text" id="shift" name="shift" class="form-control" value="{{ old('shift') }}">
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Create</button>
-            <a href="{{ route('duty.index') }}" class="btn btn-secondary">Cancel</a>
-        </form>
-    </div>
-    
-    <script src="{{ asset('js/app.js') }}"></script>
+        </div>
+    </x-app-layout>
 </body>
 </html>

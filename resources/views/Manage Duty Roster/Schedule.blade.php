@@ -42,7 +42,7 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ route('Generate Sales Report.reportAdd') }}">Add Report</a>
+    <a href="{{ route('Manage Duty Roster.slotAdd') }}">Add Report</a>
 </div>
             </div>
         </div>

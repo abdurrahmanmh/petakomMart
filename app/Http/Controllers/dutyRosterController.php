@@ -13,7 +13,7 @@ class DutyRosterController extends Controller
     public function index()
     {
         $duties = dutyRoster::all();
-       return view('Manage Duty Roster.Schedule', ['duties' => $duties]);
+        return view('Manage Duty Roster.Schedule', ['duties' => $duties]);
     }
 
     /**
@@ -59,12 +59,13 @@ class DutyRosterController extends Controller
     public function update(Request $request, dutyRoster $dutyRoster)
     {
         $duties = new dutyRoster();
-        $duties-> Duty_Roster_ID = $request->input ('Duty_Roster_ID');
-        $duties-> Date = $request->input ('Date');
-        $duties-> Time = $request->input ('Time');
+        $duties-> duty_roster_id = $request->input ('Duty_Roster_ID');
+        $duties-> date = $request->input ('Date');
+        $duties-> time = $request->input ('Time');
         $duties -> save ();
 
-        return redirect()->route('');
+        // Example redirect to the Schedule
+        return redirect()->route('Manage Duty Roster.schedule');
     }
 
 
@@ -73,6 +74,7 @@ class DutyRosterController extends Controller
      */
     public function destroy(dutyRoster $dutyRoster)
     {
-        //
+        $duties = dutyRoster::findOrFail();
+        $duties->delete();
     }
 }
